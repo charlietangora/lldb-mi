@@ -1115,7 +1115,9 @@ bool CMICmdCmdVarListChildren::Execute() {
               member, CMICmnLLDBDebugSessionInfoVarObj::eVarFormat_Natural));
       const CMICmnMIValueConst miValueConst7(strValue);
       const CMICmnMIValueResult miValueResult7("value", miValueConst7);
-      miValueTuple.Add(miValueResult7);
+      if( strValue != "{...}" ) {
+        miValueTuple.Add(miValueResult7);
+      }
     }
     const CMICmnMIValueConst miValueConst8("0");
     const CMICmnMIValueResult miValueResult8("has_more", miValueConst8);
